@@ -1,0 +1,15 @@
+EXUVIA — WEB RESPONSIVE CON PANEL DE CONTENIDOS
+
+Esta versión incorpora un CMS visual para que puedas escribir, editar y publicar las entradas del Archivo sin modificar HTML.
+
+LEE PRIMERO README_CMS_EXUVIA.md: contiene la guía paso a paso para crear el repositorio privado de GitHub, conectarlo a Netlify y activar el inicio de sesión del panel.
+
+IMPORTANTE:
+- Esta versión debe desplegarse desde GitHub conectado a Netlify; no uses Netlify Drop.
+- Netlify construye el sitio con `npm run build` y publica la carpeta `dist` según netlify.toml.
+- El panel estará en /admin/ una vez que la web esté desplegada y se complete la configuración OAuth.
+- Los artículos editables están en content/archivo; el archivo y las páginas HTML se generan desde esos registros durante el build.
+- El formulario de contacto usa Netlify Forms; activa la detección y configura la notificación a exuvia.info@gmail.com después del primer despliegue.
+- privacidad.html sigue siendo un borrador y debe completarse/revisarse antes de publicar.
+
+La carpeta admin/config.yml contiene el backend de GitHub. En despliegues desde Netlify, build.mjs intenta completar el nombre real del repositorio a partir de REPOSITORY_URL.

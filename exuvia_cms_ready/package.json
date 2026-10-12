@@ -1,0 +1,12 @@
+{
+  "name": "exuvia-web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "EXUVIA — Podcast y archivo de investigación con CMS visual",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

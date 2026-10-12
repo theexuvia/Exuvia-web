@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080909">
+  <meta name="description" content="Exuvia Podcast: conversaciones e investigaciones sobre identidad, psicología, conducta y los patrones que repetimos sin darnos cuenta.">
+  <title>Exuvia Podcast — Archivo de identidad humana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#080909; --panel:#101111; --panel2:#151513; --ink:#eee8df; --muted:#aaa69e;
+      --line:rgba(226,218,204,.19); --line-strong:rgba(226,218,204,.38); --accent:#c5ae8b;
+      --serif:'Cormorant Garamond', Georgia, serif; --sans:'Manrope', Arial, sans-serif;
+      --max:1240px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");mix-blend-mode:screen}
+    a{color:inherit;text-decoration:none}button{font:inherit}img{display:block;max-width:100%}
+    .container{width:min(var(--max),calc(100% - 56px));margin-inline:auto}
+    .eyebrow{font-size:.67rem;text-transform:uppercase;letter-spacing:.28em;color:var(--muted)}
+    .hairline{height:1px;background:var(--line);width:100%}
+    .site-header{position:sticky;top:0;z-index:20;background:rgba(8,9,9,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .header-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .wordmark{font-family:var(--sans);font-weight:300;letter-spacing:.46em;font-size:1.12rem;white-space:nowrap;padding-left:.45em}
+    .wordmark span{display:block;font-size:.53rem;letter-spacing:.48em;color:var(--muted);margin-top:2px;text-align:center}
+    .nav{display:flex;align-items:center;gap:32px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#d5d0c8}
+    .nav a{transition:color .2s}.nav a:hover{color:var(--accent)}
+    .nav-cta{border:1px solid var(--line-strong);padding:10px 16px}
+    .menu-button{display:none;background:none;border:1px solid var(--line);color:var(--ink);padding:9px 12px;cursor:pointer;letter-spacing:.1em;font-size:.7rem}
+    .hero{position:relative;padding:54px 0 68px;min-height:670px;display:grid;align-items:center;isolation:isolate}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse at 72% 40%,rgba(155,127,89,.13),transparent 38%),linear-gradient(90deg,#080909 0%,#080909 41%,rgba(8,9,9,.72) 63%,#080909 100%)}
+    .hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:7%;align-items:center}
+    .hero-copy{padding:18px 0 18px 4px;max-width:520px}
+    .index-line{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+    .index-line:before{content:"";width:44px;height:1px;background:var(--accent)}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-family:var(--serif);font-size:clamp(4.5rem,9vw,8.4rem);font-weight:300;line-height:.78;letter-spacing:-.045em;margin:0 0 25px}
+    h1 em{font-weight:300;color:#d0b99a}
+    .hero-subtitle{font-family:var(--serif);font-size:clamp(1.45rem,2.5vw,2.15rem);line-height:1.13;font-weight:400;max-width:510px;margin-bottom:23px;color:#ded8cf}
+    .hero-description{font-size:.93rem;line-height:1.9;color:#aaa69f;max-width:440px;margin-bottom:30px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:46px;padding:12px 17px;border:1px solid var(--line-strong);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;transition:background .2s,border .2s,color .2s}
+    .button:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+    .button.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}.button.primary:hover{background:var(--accent);border-color:var(--accent)}
+    .hero-footnote{margin-top:36px;display:flex;align-items:center;gap:12px;color:#8d8982;font-size:.61rem;letter-spacing:.19em;text-transform:uppercase}
+    .hero-footnote:before{content:"";display:block;width:26px;height:1px;background:var(--line-strong)}
+    .hero-art{position:relative;max-width:560px;margin-left:auto;width:100%;}
+    .hero-art:before{content:"";position:absolute;inset:-16px 18px 18px -18px;border:1px solid var(--line);z-index:-1}
+    .hero-art:after{content:"";position:absolute;width:100px;height:100px;border:1px solid rgba(197,174,139,.6);border-radius:50%;right:-25px;top:-28px;z-index:-1;box-shadow:0 0 28px rgba(197,174,139,.07)}
+    .hero-art img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center;border:1px solid rgba(255,255,255,.06);filter:saturate(.86) contrast(1.04)}
+    .art-caption{position:absolute;bottom:17px;right:17px;background:rgba(7,8,8,.7);backdrop-filter:blur(12px);padding:9px 12px;border:1px solid var(--line);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase}
+    .section{padding:92px 0;border-top:1px solid var(--line);position:relative}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:34px}
+    .section-kicker{margin-bottom:10px}
+    h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.7rem,5vw,4.7rem);line-height:.94;letter-spacing:-.035em;margin-bottom:0}
+    h2 em{color:#c3ad8c;font-weight:300}
+    .section-intro{max-width:390px;color:var(--muted);font-size:.82rem;line-height:1.9;margin-bottom:2px}
+    .platform-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);}
+    .platform{min-height:138px;display:flex;flex-direction:column;justify-content:space-between;padding:22px 20px;border-right:1px solid var(--line);transition:background .2s;position:relative;overflow:hidden}
+    .platform:last-child{border-right:0}.platform:hover{background:rgba(196,174,139,.08)}
+    .platform-icon{width:34px;height:34px;border:1px solid var(--line-strong);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:1.1rem;color:#e4d6c0}
+    .platform-title{font-size:.75rem;letter-spacing:.08em}.platform-note{font-size:.57rem;letter-spacing:.13em;color:#8e8981;text-transform:uppercase;margin-top:5px}
+    .platform-arrow{position:absolute;right:18px;top:21px;color:var(--muted);font-size:1.05rem}
+    .featured{display:grid;grid-template-columns:.8fr 1.2fr;gap:6%;align-items:center}
+    .featured-image{position:relative;background:#111;overflow:hidden}
+    .featured-image img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center;filter:saturate(.9) contrast(1.02)}
+    .featured-image:after{content:"";position:absolute;inset:12px;border:1px solid rgba(255,255,255,.19);pointer-events:none}
+    .episode-number{font-size:.67rem;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
+    .featured h3{font-family:var(--serif);font-size:clamp(3rem,5vw,5rem);font-weight:300;line-height:.9;letter-spacing:-.04em;margin-bottom:14px}
+    .featured h4{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;font-weight:400;margin-bottom:24px;color:#ccc3b5}
+    .featured p{color:var(--muted);max-width:570px;font-size:.88rem;line-height:1.95}
+    .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin:25px 0 28px}.tag{border:1px solid var(--line);padding:6px 9px;color:#b9b2a7;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase}
+    .video-section{background:linear-gradient(180deg,rgba(197,174,139,.035),transparent 75%)}
+    .video-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:22px}
+    .video-feature{background:#101111;border:1px solid var(--line);padding:12px}
+    .video-placeholder{position:relative;aspect-ratio:16/9;background:#060707;overflow:hidden;display:grid;place-items:center}
+    .video-placeholder img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.54) saturate(.7);transition:transform .4s,filter .4s}
+    .video-feature:hover .video-placeholder img{transform:scale(1.025);filter:brightness(.68) saturate(.8)}
+    .play{position:relative;z-index:1;border:1px solid rgba(244,235,221,.78);width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(5,6,6,.45);color:#f5eee5;font-size:1rem;padding-left:4px}
+    .video-overlay-label{position:absolute;left:18px;bottom:16px;z-index:1;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#eee7dc}
+    .video-details{display:flex;justify-content:space-between;gap:20px;padding:17px 5px 8px;align-items:flex-start}
+    .video-details h3{font-family:var(--serif);font-size:1.9rem;line-height:1;font-weight:300;margin:0 0 7px}.video-details p{color:var(--muted);font-size:.75rem;margin:0}
+    .video-side{border:1px solid var(--line);padding:24px;background:rgba(255,255,255,.015);display:flex;flex-direction:column;justify-content:space-between;min-height:100%}
+    .video-side .big-num{font-family:var(--serif);font-weight:300;font-size:5.5rem;line-height:.9;color:rgba(197,174,139,.75)}
+    .video-side h3{font-family:var(--serif);font-size:2.35rem;font-weight:300;line-height:.96;margin:28px 0 16px}
+    .video-side p{font-size:.8rem;color:var(--muted);line-height:1.9}
+    .archive-list{border-top:1px solid var(--line)}
+    .archive-row{display:grid;grid-template-columns:95px 1fr auto;align-items:center;gap:24px;padding:22px 8px;border-bottom:1px solid var(--line);transition:padding .2s,background .2s}
+    .archive-row:hover{padding-inline:16px;background:rgba(255,255,255,.02)}
+    .archive-row .ep-index{font-size:.7rem;letter-spacing:.17em;color:var(--accent)}
+    .archive-row h3{font-family:var(--serif);font-size:2rem;font-weight:300;margin:0;line-height:1.05}
+    .archive-row p{margin:7px 0 0;color:var(--muted);font-size:.72rem}
+    .archive-status{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:#9d978d;border:1px solid var(--line);padding:8px 10px;white-space:nowrap}
+    .manifesto{padding:93px 0 100px;text-align:center;border-top:1px solid var(--line);background:radial-gradient(ellipse at 50% 60%,rgba(181,149,106,.08),transparent 48%)}
+    .manifesto-mark{height:44px;width:44px;border:1px solid #c8b18c;border-radius:50%;margin:0 auto 25px;position:relative;box-shadow:0 0 20px rgba(197,174,139,.12)}
+    .manifesto-mark:after{content:"";position:absolute;left:50%;top:100%;height:28px;width:1px;background:var(--line-strong)}
+    .manifesto h2{margin:36px auto 20px;max-width:820px;font-size:clamp(2.8rem,6vw,5.3rem)}
+    .manifesto p{max-width:520px;margin:0 auto 26px;color:var(--muted);font-size:.87rem;line-height:1.9}
+    .footer{padding:26px 0;border-top:1px solid var(--line)}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footer-copy{font-size:.57rem;letter-spacing:.16em;color:#8e8981;text-transform:uppercase}.footer-links{display:flex;gap:17px;color:#b5afa5;font-size:.61rem;letter-spacing:.13em;text-transform:uppercase}
+    .toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#eee8df;color:#111;padding:12px 18px;font-size:.76rem;z-index:60;transition:opacity .2s,transform .2s;box-shadow:0 8px 34px #0008;max-width:min(90vw,480px)}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:900px){.container{width:min(100% - 36px,var(--max))}.header-inner{height:70px}.nav{gap:17px}.hero{min-height:auto;padding:65px 0}.hero-grid{grid-template-columns:1fr 1fr;gap:32px}.hero h1{font-size:clamp(4rem,8vw,6rem)}.platform-grid{grid-template-columns:repeat(2,1fr)}.platform:nth-child(odd){border-right:1px solid var(--line)}.platform:nth-child(even){border-right:0}.platform:nth-child(-n+2){border-bottom:1px solid var(--line)}.featured{gap:36px}.section{padding:75px 0}.video-grid{grid-template-columns:1fr}.video-side{min-height:280px}.video-side h3{margin-top:18px}}
+    @media(max-width:650px){.container{width:calc(100% - 32px)}.header-inner{height:66px}.wordmark{font-size:.95rem;letter-spacing:.35em}.menu-button{display:block}.nav{display:none;position:absolute;top:65px;left:0;right:0;padding:18px 18px 22px;background:rgba(8,9,9,.97);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:15px 4px;border-bottom:1px solid var(--line)}.nav .nav-cta{text-align:center;margin-top:13px;border:1px solid var(--line-strong)}
+      .hero{padding:42px 0 52px}.hero-grid{grid-template-columns:1fr;gap:38px}.hero-copy{padding:0}.index-line{margin-bottom:18px}h1{font-size:clamp(4.2rem,19vw,6.4rem);margin-bottom:22px}.hero-subtitle{font-size:1.65rem}.hero-description{font-size:.84rem}.hero-art{max-width:100%;margin-right:10px;width:calc(100% - 10px)}.hero-art:before{inset:-9px 10px 10px -10px}.hero-art:after{width:66px;height:66px;right:-16px;top:-17px}.hero-art img{aspect-ratio:1/1}.hero-footnote{margin-top:25px;font-size:.55rem}
+      .section{padding:61px 0}.section-head{display:block;margin-bottom:26px}.section-intro{margin-top:17px}.platform-grid{grid-template-columns:repeat(2,1fr)}.platform{min-height:118px;padding:17px}.platform:nth-child(odd){border-right:1px solid var(--line)}.platform:nth-child(even){border-right:0}.platform:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .featured{grid-template-columns:1fr;gap:28px}.featured-image{max-width:480px}.featured h3{font-size:4rem}.video-details{display:block}.video-details .button{margin-top:17px}.video-side{padding:22px;min-height:265px}.video-side .big-num{font-size:4.5rem}.archive-row{grid-template-columns:58px 1fr;gap:12px;padding:19px 2px}.archive-row h3{font-size:1.65rem}.archive-row p{line-height:1.6}.archive-status{grid-column:2;justify-self:start;margin-top:6px}.manifesto{padding:70px 0}.footer-inner{flex-direction:column;align-items:flex-start}.footer-links{flex-wrap:wrap}.footer-copy{line-height:1.8}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  
+    .wordmark{display:flex;flex-direction:column;align-items:flex-start;gap:4px;letter-spacing:0;padding-left:0;line-height:1}
+    .wordmark-image{display:block;width:142px;height:auto;max-width:100%}
+    .wordmark span{font-size:.45rem;letter-spacing:.24em;color:var(--muted);margin-top:1px;text-align:left;line-height:1.4}
+    @media(max-width:650px){.wordmark-image{width:118px}.wordmark span{font-size:.4rem;letter-spacing:.18em}}
+  
+/* MOBILE REFINEMENT — Exuvia Podcast */
+@media (max-width: 560px){
+  html{scroll-padding-top:75px}.container{width:calc(100% - 30px)}
+  .header-inner{height:64px;gap:12px}.wordmark-image{width:112px}.wordmark span{font-size:.36rem;letter-spacing:.16em}.menu-button{min-height:43px;padding:10px 11px;font-size:.62rem;white-space:nowrap}
+  .nav{top:64px;max-height:calc(100dvh - 68px);overflow:auto;padding:13px 17px 18px}
+  .hero{padding:42px 0 45px}.hero-grid{grid-template-columns:minmax(0,1fr);gap:28px}.hero-copy{min-width:0}.index-line{font-size:.53rem;letter-spacing:.17em;line-height:1.65;margin-bottom:17px}
+  .hero h1{font-size:clamp(3.55rem,16.5vw,5.25rem);line-height:.81;letter-spacing:-.055em;overflow-wrap:normal}.hero h1 em{font-size:.78em}.hero-subtitle{font-size:1.55rem;line-height:1.15}.hero-description{font-size:.82rem;line-height:1.85}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:9px}.hero-actions .button{width:100%;min-height:48px;justify-content:space-between}.hero-art{width:calc(100% - 8px);max-width:470px;margin:0 auto}.hero-art img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 38%}.art-caption{font-size:.49rem;letter-spacing:.12em;left:12px;bottom:12px}
+  .hero-footnote{font-size:.5rem;letter-spacing:.13em;line-height:1.8;align-items:flex-start}.section{padding:55px 0}.section-head{display:block;margin-bottom:23px}.section h2{font-size:clamp(2.5rem,11.8vw,3.6rem);line-height:.92}.section-intro{font-size:.8rem;line-height:1.85;margin-top:15px}
+  .platform-grid{grid-template-columns:1fr;gap:0}.platform{min-height:78px;padding:14px 12px;border-right:0!important;border-bottom:1px solid var(--line)}.platform:nth-child(-n+2){border-bottom:1px solid var(--line)}.platform-icon{flex:0 0 38px}.platform-title{font-size:.86rem}.platform-note{font-size:.68rem}
+  .featured{grid-template-columns:minmax(0,1fr);gap:24px}.featured-image{width:100%;max-width:100%;padding:7px}.featured-image img{width:100%;aspect-ratio:4/5;object-fit:cover}.featured h3{font-size:clamp(3.2rem,15vw,4.2rem);line-height:.86}.featured h4{font-size:1.4rem}.episode-number{font-size:.52rem;letter-spacing:.14em}.episode-youtube,.episode-listen,.button{min-height:48px}.video-feature{display:block}.video-grid{grid-template-columns:1fr;gap:15px}.video-placeholder{min-height:220px;aspect-ratio:16/9}.video-side{padding:20px;min-height:0}.video-side .big-num{font-size:3.7rem}.video-details{display:block}.video-details .button{width:100%;margin-top:15px}.archive-row{grid-template-columns:43px minmax(0,1fr);gap:11px;padding:17px 0}.archive-row h3{font-size:1.55rem;overflow-wrap:anywhere}.archive-row p{font-size:.76rem;line-height:1.7}.archive-status{white-space:normal;grid-column:2;justify-self:start;font-size:.5rem;padding:7px 8px}
+  .manifesto{padding:58px 0}.manifesto h2{font-size:clamp(2.35rem,11vw,3.4rem);line-height:.93}.manifesto p{font-size:.82rem;line-height:1.85}.footer-inner{gap:15px}.footer-links{flex-wrap:wrap;gap:10px 14px;font-size:.53rem;line-height:1.8}.footer-copy{font-size:.52rem;line-height:1.8;letter-spacing:.12em}
+}
+@media (max-width: 380px){
+  .container{width:calc(100% - 26px)}.wordmark-image{width:102px}.hero h1{font-size:clamp(3.2rem,15.5vw,4rem)}.hero-subtitle{font-size:1.38rem}.platform{gap:10px}.platform-note{font-size:.63rem}.archive-row h3{font-size:1.4rem}.archive-row .ep-index{font-size:.61rem}
+}
+
+  /* MOBILE TABLET NAV FIX */
+
+@media(max-width:900px){
+ .site-header{position:sticky}.header-inner{height:70px;gap:14px}.menu-button{display:block;min-height:44px}.nav{display:none;position:absolute;top:69px;left:0;right:0;z-index:40;padding:15px 20px 20px;background:rgba(8,9,9,.98);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;max-height:calc(100dvh - 74px);overflow:auto}.nav.open{display:flex}.nav a{padding:14px 3px;border-bottom:1px solid var(--line);min-height:44px}.nav .nav-cta{text-align:center;margin-top:12px;border:1px solid var(--line-strong)}
+}
+@media(max-width:560px){.video-grid,.video-grid>*{min-width:0;width:100%;max-width:100%;box-sizing:border-box}.video-feature,.video-side{min-width:0;width:100%;max-width:100%;box-sizing:border-box}.video-feature{padding:7px}.video-placeholder,.video-details,.video-click{min-width:0;max-width:100%;width:100%;box-sizing:border-box}.video-placeholder img{width:100%;max-width:100%;height:auto}.video-details>div{min-width:0;max-width:100%;overflow-wrap:anywhere}}
+
+/* Prevent decorative ornaments from creating a sideways scroll on phones/tablets */
+html{overflow-x:clip;max-width:100%}
+@media(max-width:900px){body{max-width:100%;overflow-x:clip}}
+
+    .auto-player-panel iframe{color-scheme:dark}
+    .auto-player-panel{min-width:0;overflow:hidden}
+    @media(max-width:560px){.auto-player-panel iframe{height:500px}.auto-player-panel{padding:15px!important}}
+  </style>
+</head>
+<body>
+  <!-- CONFIGURACIÓN: pega las URLs oficiales en el objeto EXUVIA_LINKS y el ID de YouTube en YOUTUBE_VIDEO_ID. -->
+  <script>
+    const EXUVIA_LINKS = {
+      spotify: "https://open.spotify.com/show/46gzH1C6H6qAwIxTYFoJEq",
+      amazonMusic: "https://music.amazon.es/podcasts/d882f850-b5bf-4e10-8be1-eb0435d42690/exuvia--archivo-de-identidad-humana?ref=dm_sh_PlochXkcEt46Z70wDuosLGV6J",
+      youtubeChannel: "https://www.youtube.com/@the.exuvia",
+      spreaker: "https://www.spreaker.com/podcast/exuvia-archivo-de-identidad-humana--7270498",
+      episode001: ""
+    };
+    const YOUTUBE_VIDEO_ID = ""; // Añade aquí el ID cuando esté publicado el videopodcast del episodio 001.
+  </script>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="index.html" aria-label="Exuvia, inicio"><img class="wordmark-image" src="assets/exuvia-wordmark.png" alt="Exuvia"><span>ARCHIVO DE IDENTIDAD HUMANA</span></a>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mainNav">MENÚ ☰</button>
+      <nav class="nav" id="mainNav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a><a href="archivo.html">Archivo</a><a href="sobre-exuvia.html">Sobre mí y Exuvia</a><a href="contacto.html">Contacto</a><a href="#episodios">Episodios</a><a href="#videopodcast">Videopodcast</a><a href="#plataformas">Plataformas</a>
+        <a class="nav-cta" href="#episodio-001">Escuchar EP.001 ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="index-line eyebrow">Archivo sonoro · 001</div>
+          <h1>EXUVIA<br><em>PODCAST</em></h1>
+          <p class="hero-subtitle">¿Cuánto de lo que llamamos identidad realmente elegimos?</p>
+          <p class="hero-description">Conversaciones e investigaciones sobre aquello que hacemos, pensamos y repetimos sin darnos cuenta. Un proceso en primera persona, sin fórmulas mágicas ni respuestas prefabricadas.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#episodio-001">Entrar al episodio <span>↗</span></a>
+            <a class="button" href="#videopodcast">Ver videopodcast <span>↘</span></a>
+          </div>
+          <div class="hero-footnote">Identidad · Psicología · Conducta · Vida real</div>
+        </div>
+        <div class="hero-art">
+          <img src="assets/exuvia-podcast-cover.png" alt="Portada de Exuvia Podcast: Monse en un retrato editorial oscuro">
+          <div class="art-caption">Un laboratorio en primera persona</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="plataformas">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow section-kicker">01 / Escuchar</div><h2>Elige dónde<br><em>escuchar.</em></h2></div>
+          <p class="section-intro">El mismo archivo, distintas formas de entrar. Escucha el episodio en tu plataforma habitual y vuelve cuando quieras seguir investigando.</p>
+        </div>
+        <div class="platform-grid">
+          <a class="platform platform-link" data-platform="spotify" href="#plataformas"><span class="platform-icon">S</span><span><span class="platform-title">Spotify</span><span class="platform-note">Escucha el podcast</span></span><span class="platform-arrow">↗</span></a>
+          <a class="platform platform-link" data-platform="amazonMusic" href="#plataformas"><span class="platform-icon">a</span><span><span class="platform-title">Amazon Music</span><span class="platform-note">Escucha el podcast</span></span><span class="platform-arrow">↗</span></a>
+          <a class="platform platform-link" data-platform="youtubeChannel" href="#plataformas"><span class="platform-icon">▶</span><span><span class="platform-title">YouTube</span><span class="platform-note">Vídeo y audio</span></span><span class="platform-arrow">↗</span></a>
+          <a class="platform platform-link" data-platform="spreaker" href="#plataformas"><span class="platform-icon">S</span><span><span class="platform-title">Spreaker</span><span class="platform-note">Escucha el podcast</span></span><span class="platform-arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="episodios">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow section-kicker">02 / El archivo</div><h2>Una pregunta<br>abre <em>el proceso.</em></h2></div>
+          <p class="section-intro">Cada episodio es una entrada al archivo: ideas en revisión, preguntas abiertas y observaciones sobre la experiencia humana.</p>
+        </div>
+        <article class="featured" id="episodio-001">
+          <div class="featured-image"><img src="assets/exuvia-ep001-youtube.png" alt="Portada del videopodcast del episodio 001, Antes de Exuvia"></div>
+          <div>
+            <div class="episode-number">Episodio 001 · Inicio del archivo</div>
+            <h3>Antes de<br>Exuvia</h3>
+            <h4>¿Quién soy yo?</h4>
+            <p>Antes de hablar de identidad, te cuento de dónde nace Exuvia: años buscando respuestas, el límite de algunas herramientas que conocía y una pregunta que sigue abierta. No vengo a dar una fórmula; vengo a investigar qué nos condiciona y qué hace posible un cambio real.</p>
+            <div class="tag-row"><span class="tag">Identidad</span><span class="tag">Experiencia personal</span><span class="tag">Investigación</span></div>
+            <div class="hero-actions"><a class="button primary episode-listen" href="#plataformas">Escuchar episodio <span>↗</span></a><a class="button episode-youtube" href="#videopodcast">Ver vídeo <span>↗</span></a></div>
+          </div>
+        </article>
+        <div class="auto-player-panel" style="margin-top:42px;border:1px solid var(--line);padding:clamp(16px,3vw,28px);background:linear-gradient(135deg,rgba(197,174,139,.055),transparent 65%)">
+          <div class="eyebrow" style="margin-bottom:10px">Actualización automática · Spreaker</div>
+          <h3 style="font:300 clamp(1.8rem,4vw,2.7rem)/1 var(--serif);margin:0 0 10px">El episodio más reciente.</h3>
+          <p style="color:var(--muted);font-size:.82rem;max-width:720px;margin-bottom:22px">Este reproductor se conecta al feed del podcast. Cuando publiques un nuevo episodio en Spreaker, el reproductor mostrará el último episodio disponible y su lista de reproducción se actualizará desde la plataforma.</p>
+          <div style="width:100%;overflow:hidden;background:#0b0c0c;border:1px solid var(--line);min-height:300px"><iframe title="Reproductor de Exuvia Podcast — últimos episodios" src="https://widget.spreaker.com/player?show_id=7270498&amp;theme=dark&amp;playlist=true" width="100%" height="500" frameborder="0" loading="lazy" allow="autoplay; clipboard-write" style="display:block;width:100%;max-width:100%;border:0" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+          <p style="font-size:.68rem;color:var(--muted);margin:12px 0 0">El archivo editorial de esta página y los vídeos de YouTube pueden seguir curándose manualmente; el reproductor de audio se actualiza a través de Spreaker.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section video-section" id="videopodcast">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow section-kicker">03 / Ver y escuchar</div><h2>Videopodcast<br><em>Exuvia.</em></h2></div>
+          <p class="section-intro">La voz, el silencio y las ideas también forman parte del archivo. Encuentra aquí los episodios en vídeo.</p>
+        </div>
+        <div class="video-grid">
+          <article class="video-feature">
+            <a class="video-click" href="#videopodcast" aria-label="Ver el videopodcast Antes de Exuvia">
+              <div class="video-placeholder"><img src="assets/exuvia-ep001-youtube.png" alt="Portada de YouTube del episodio 001, Antes de Exuvia"><span class="play">▶</span><span class="video-overlay-label">Exuvia · Episodio 001</span></div>
+            </a>
+            <div class="video-details"><div><h3>Antes de Exuvia</h3><p>¿Quién soy yo? · Episodio de presentación</p></div><a class="button youtube-watch" href="#videopodcast">Ver en YouTube ↗</a></div>
+          </article>
+          <aside class="video-side">
+            <div><div class="eyebrow">Archivo audiovisual</div><div class="big-num">001</div></div>
+            <div><h3>La investigación<br>empieza aquí.</h3><p>Una conversación sin personaje ni respuestas cerradas. El primer registro de un proyecto que se construye mientras se investiga.</p><a class="button channel-link" href="#plataformas">Explorar el canal ↗</a></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto" id="manifiesto">
+      <div class="container">
+        <div class="manifesto-mark" aria-hidden="true"></div>
+        <div class="eyebrow">Exuvia · Archivo de identidad humana</div>
+        <h2>No venimos a consumir respuestas.<br><em>Venimos a investigar.</em></h2>
+        <p>Observar. Comprender. Experimentar. Integrar. Encarna. La transformación no se declara: se observa en lo que hacemos, en lo que repetimos y en lo que, poco a poco, dejamos de repetir.</p>
+        <a class="button" href="#episodios">Entrar en el archivo ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-inner"><a class="wordmark" href="index.html" aria-label="Exuvia, inicio"><img class="wordmark-image" src="assets/exuvia-wordmark.png" alt="Exuvia"><span>ARCHIVO DE IDENTIDAD HUMANA</span></a><div class="footer-copy">Investigación · Observación · Transformación</div><div class="footer-links"><a href="sobre-exuvia.html">Sobre mí y Exuvia</a><a href="archivo.html">Archivo de investigación</a><a href="contacto.html">Contacto</a><a href="privacidad.html">Privacidad</a><a href="#episodios">Episodios</a><a href="#videopodcast">YouTube</a><a href="#plataformas">Plataformas</a></div></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const toast = document.getElementById('toast');
+    let toastTimer;
+    function showToast(message){ toast.textContent = message; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(()=>toast.classList.remove('show'), 3200); }
+    document.querySelectorAll('[data-platform]').forEach(link=>{
+      const key = link.dataset.platform;
+      const url = EXUVIA_LINKS[key];
+      if(url && /^https?:\/\//i.test(url)){ link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; }
+      else { link.addEventListener('click',e=>{e.preventDefault(); showToast('Añade la URL oficial de '+link.querySelector('.platform-title').textContent+' en EXUVIA_LINKS, al inicio del archivo index.html.');}); }
+    });
+    const videoTarget = YOUTUBE_VIDEO_ID ? `https://www.youtube.com/watch?v=${encodeURIComponent(YOUTUBE_VIDEO_ID)}` : (EXUVIA_LINKS.youtubeChannel || '');
+    document.querySelectorAll('.video-click,.youtube-watch').forEach(el=>{
+      if(videoTarget){el.href=videoTarget;el.target='_blank';el.rel='noopener noreferrer';}
+      else {el.addEventListener('click',e=>{e.preventDefault();showToast('Añade el ID del videopodcast de YouTube en YOUTUBE_VIDEO_ID, al inicio del archivo index.html.');});}
+    });
+    document.querySelectorAll('.episode-listen').forEach(el=>{
+      if(EXUVIA_LINKS.episode001){el.href=EXUVIA_LINKS.episode001;el.target='_blank';el.rel='noopener noreferrer';}
+    });
+    document.querySelectorAll('.channel-link').forEach(el=>{
+      if(EXUVIA_LINKS.youtubeChannel){el.href=EXUVIA_LINKS.youtubeChannel;el.target='_blank';el.rel='noopener noreferrer';}
+      else {el.addEventListener('click',e=>{e.preventDefault();showToast('Añade la URL de tu canal de YouTube en EXUVIA_LINKS.');});}
+    });
+    const menuButton=document.getElementById('menuButton'); const nav=document.getElementById('mainNav');
+    menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
+  </script>
+</body>
+</html>

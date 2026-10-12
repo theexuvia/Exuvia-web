@@ -1,0 +1,52 @@
+backend:
+  name: github
+  repo: TU_USUARIO_GITHUB/exuvia-web
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+site_url: https://exuvia.com
+logo_url: /assets/exuvia-wordmark.png
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+locale: es
+show_preview_links: true
+
+collections:
+  - name: archivo
+    label: Archivo de investigación
+    label_singular: Entrada de investigación
+    folder: content/archivo
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{kind}} · {{title}}"
+    preview_path: "{{slug}}.html"
+    sortable_fields: [date, title, kind]
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Fecha de publicación, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - label: Tipo de registro
+        name: kind
+        widget: select
+        options:
+          - { label: Nota de campo, value: "Nota de campo" }
+          - { label: Hipótesis de trabajo, value: "Hipótesis de trabajo" }
+          - { label: Método / metodología, value: "Método" }
+          - { label: Reflexión, value: "Reflexión" }
+          - { label: Descubrimiento, value: "Descubrimiento" }
+          - { label: Fuentes y bibliografía, value: "Fuentes y bibliografía" }
+      - { label: Número de registro (déjalo vacío para asignación automática), name: record_number, widget: string, required: false }
+      - { label: Resumen corto para las tarjetas, name: excerpt, widget: text }
+      - { label: Categorías / etiquetas, name: tags, widget: list, required: false }
+      - { label: Tiempo de lectura (minutos), name: reading_minutes, widget: number, min: 1, required: false }
+      - { label: Imagen destacada, name: featured_image, widget: image, required: false }
+      - { label: Frase destacada, name: pullquote, widget: text, required: false }
+      - { label: Estado / tipo de afirmación, name: status_title, widget: string, required: false }
+      - { label: Nota de rigor o límites, name: status_text, widget: text, required: false }
+      - { label: Pregunta final, name: question, widget: text, required: false }
+      - { label: Visible en el archivo, name: published, widget: boolean, default: true }
+      - { label: Contenido completo, name: body, widget: markdown }
